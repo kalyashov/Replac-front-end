@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Новости</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet/less" type="text/css" href="css/postline.less"/>
+        <link rel="stylesheet/less" type="text/css" href="css/main.less" />
+
+        <script src="bower_components/less/dist/less.min.js"></script>
+
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <div class="box">
+                <div class="row row-offcanvas row-offcanvas-left">
+
+                    <!-- sidebar -->
+                    <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+                        <ul class="menu-items nav hidden-xs" id="lg-menu">
+                            <li class="active"><a href="#"><i class="fa fa-list"></i> Все категории</a></li>
+                            <li><a href="#"><i class="fa fa-check"></i> События </a></li>
+                            <li><a href="#"><i class="fa fa-newspaper-o"></i> Новости </a></li>
+                            <li><a href="#"><i class="fa fa-fire"></i> Акции</a></li>
+                        </ul>
+
+                        <!-- tiny only nav-->
+                        <ul class="nav visible-xs" id="xs-menu">
+                            <li><a href="#" class="text-center"><i class="fa fa-list"></i></a></li>
+                            <li><a href="#" class="text-center"><i class="fa fa-check"></i></a></li>
+                            <li><a href="#" class="text-center"><i class="fa fa-newspaper-o"></i></a></li>
+                            <li><a href="#" class="text-center"><i class="fa fa-fire"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- /sidebar -->
+
+                    <!-- main right col -->
+                    <div class="column col-sm-10 col-xs-11" id="main">
+
+                        <div class="row">
+                            <!-- top nav -->
+                            <div class="col-xs-12 col-sm-12 col-md-11">
+                                <div class="navbar navbar-blue navbar-static-top">
+                                    <div class="navbar-header">
+                                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="sr-only">Toggle</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <nav class="collapse navbar-collapse" role="navigation">
+                                        <ul class="menu-items nav navbar-nav navbar-right">
+                                            <li>
+                                                <a href="#"><i class="fa fa-search fa-2x"></i> </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="fa fa-cutlery fa-2x"></i> </a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="fa fa-bookmark fa-2x"></i>  </a>
+                                            </li>
+                                        </ul>
+
+                                    </nav>
+                                </div>
+                                <!-- /top nav -->
+                            </div>
+
+                            <div class="hidden-xs hidden-sm col-md-1">
+                                <a href="#" class="menu-button"><i class="fa fa-bars fa-2x"></i> </a>
+                            </div>
+
+                            <div class="padding">
+                                <div class="full col-sm-9">
+
+                                    <!-- content -->
+                                    <div class="row">
+                                        <div id="posts" class="col-xs-12 col-sm-12 col-md-11 "></div>
+                                        <div class="hidden-xs hidden-sm col-md-1 "></div>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                    </div>  <!-- /main -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Post modal window -->
+        <div id="postModal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg"></div>
+        </div>
+
+        <!-- Post templаte -->
+        <script type="text/template" id="post-template">
+            <div class="post">
+                <div class="post-header">
+                    <img class="poster img-fluid" src="<%= poster %>"/>
+                </div>
+                <div class="post-body">
+                    <div class="post-content">
+                        <p class="title"> <%= place.full_name %> </p>
+                        <p class="place-about"> <%= place.place_type.description %> </p>
+                        <p class="description"> <%= description %> </p>
+                    </div>
+                </div>
+                <div class="post-footer">
+                    <div class="event-time"> <!--<%= start_event_time %>--> 22:00 </div>
+                </div>
+            </div>
+        </script>
+
+        <!-- Post modal template -->
+        <script type="text/template" id="post-modal-template">
+            <div class="modal-content">
+                <div class="modal-body row">
+                    <div class="l-col col-xs-6 cols-sm-6 col-md-6">
+                        <img class="poster-modal img-responsive" src="<%= poster %>"/>
+                    </div>
+                    <div class="r-col col-xs-6 cols-sm-6 col-md-6">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <div class="post-modal-header">
+                            <div class="row">
+                                <div class="l-col col-xs-2 col-sm-2 col-md-2">
+                                    <img class="place-image img-responsive img-circle" src="<%= place.logo %>">
+                                </div>
+                                <div class="c-col col-xs-8 col-sm-8 col-md-8">
+                                    <p class="title"> <%= place.full_name %> </p>
+                                    <p class="place-about"> <%= place.place_type.description %> </p>
+                                </div>
+                                <div class="r-col col-xs-2 col-sm-2 col-md-2">
+                                    <span class="bookmark"><i class="fa fa-bookmark-o fa-2x"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-modal-content">
+                            <p class="description"> <%= description %> </p>
+                        </div>
+                        <div class="post-modal-footer">
+                            <div class="row">
+                                <div class="l-col col-xs-2 col-sm-2 col-md-2">
+                                    <p class="post-type"> <%= post_type.description %> </p>
+                                </div>
+                                <div class="c-col col-xs-8 col-sm-8 col-md-8">
+                                     <p class="place-address"><i class="fa fa-map-marker"></i> <%= place.address %></p>
+                                </div>
+                                <div class="r-col col-xs-2 col-sm-2 col-md-2">
+                                    <div class="event-time"> <!--<%= start_event_time %>--> 22:00 </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/normalize-strings/normalize.js"></script>
+
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
+
+
+        <script src="js/postline.js"></script>
+    </body>
+</html>

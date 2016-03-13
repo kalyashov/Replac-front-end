@@ -1,0 +1,27 @@
+{
+  "name": "Replace",
+  "authors": [
+    "Grigory <kalyashov@yandex.ru>"
+  ],
+  "description": "Replace web app",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "normalize-strings": "normalize#^1.0.4",
+    "bootstrap": "^3.3.6",
+    "less": "^2.6.1",
+    "underscore": "^1.8.3",
+    "backbone": "^1.3.1",
+    "font-awesome": "^4.5.0"
+  }
+}

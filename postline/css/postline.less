@@ -1,0 +1,184 @@
+@import "colors";
+
+@post-height: 430px;
+@post-description-height: @post-height - 210;
+@post-modal-height: 300px;
+@post-modal-content-height: @post-modal-height - 86;
+@poster-modal-height: 360px;
+
+/* Post */
+.post
+{
+  background-color: @colorPostBg;
+  cursor: pointer;
+  height: @post-height;
+  max-height: 100%;
+  margin-bottom: 25px;
+
+  .post-content
+  {
+    margin:35px;
+  }
+
+  .post-content, .place-about
+  {
+    margin-top: 0;
+    color: @colorTextGrey;
+    font-size: 100%;
+  }
+
+  .poster
+  {
+    width: 100%;
+  }
+
+  .title
+  {
+    font-size: 180%;
+    color: @colorTextDark;
+    margin: 0;
+    padding-top: 15%;
+  }
+
+  .description
+  {
+    color: @colorTextGrey;
+    margin-top: 15px;
+    font-size: 120%;
+    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: @post-description-height;
+  }
+
+  .post-footer
+  {
+
+  }
+
+  .event-time
+  {
+    color: #adadad;
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+  }
+
+}
+
+/* Post modal */
+
+/* Center modal */
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px; /* Adjusts for spacing */
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.modal-content {
+  width: 100%;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+
+  .modal-body {
+    padding: 0;
+    margin: 0;
+
+    .r-col, .l-col {
+      margin: 0;
+      padding: 0;
+    }
+
+    .post-modal-header {
+      padding-top: 20px;
+      margin-bottom: 10px;
+
+      .title {
+        color: @colorTextDark;
+      }
+
+      .l-col, .c-col {
+        margin: 0;
+        padding:0;
+      }
+
+      .r-col {
+        text-align: right;
+        padding-right: 20px;
+      }
+
+      .title {
+        font-size: 150%;
+        font-style: oblique;
+        margin: 0;
+      }
+
+      .place-about {
+        color: @colorTextGrey;
+      }
+
+      .bookmark{
+        color: @colorTextGrey;
+      }
+    }
+
+    .poster-modal {
+      width: 95%;
+      height: @poster-modal-height;
+      padding: 0;
+      margin: 0;
+    }
+
+    .post-modal-content {
+      height: @post-modal-content-height;
+      overflow-y: scroll;
+      .description {
+        font-size: 110%;
+        color: @colorTextDark;
+      }
+    }
+
+    .post-modal-footer
+    {
+      color: @colorTextGrey;
+      padding-top: 18px;
+
+      .event-time {
+        text-align: center;
+      }
+
+      .place-address {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .place-image {
+      width: 50px;
+      height: 50px;
+    }
+
+  }
+}
+
+
+
+
+
+
+
