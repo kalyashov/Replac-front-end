@@ -1,16 +1,20 @@
 @import "colors";
 
-@post-height: 430px;
+@post-height: 330px;
+@post-width: 300px;
 @post-description-height: @post-height - 210;
 @post-modal-height: 300px;
 @post-modal-content-height: @post-modal-height - 86;
 @poster-modal-height: 360px;
+@post-poster-height: 250px;
+
 
 /* Post */
 .post
 {
   background-color: @colorPostBg;
   cursor: pointer;
+  width: @post-width;
   height: @post-height;
   max-height: 100%;
   margin-bottom: 25px;
@@ -30,6 +34,7 @@
   .poster
   {
     width: 100%;
+    height: @post-poster-height;
   }
 
   .title
