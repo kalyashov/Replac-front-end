@@ -1,13 +1,19 @@
 @import "colors";
 
-@post-height: 330px;
-@post-width: 300px;
-@post-description-height: @post-height - 210;
-@post-modal-height: 300px;
-@post-modal-content-height: @post-modal-height - 86;
-@poster-modal-height: 360px;
-@post-poster-height: 250px;
+@post-height: 470px;
+@post-width: 275px;
+@post-logo-size: 30px;
+@post-poster-height: 195px;
+@post-description-height: 115px;
 
+@modal-btn-width: 80px;
+@modal-body-width: 470px;
+@modal-width: @modal-body-width + @modal-btn-width * 2;
+@modal-height: 715px;
+
+@modal-poster-height: 330px;
+
+@el-margin: 15px;
 
 /* Post */
 .post
@@ -16,64 +22,71 @@
   cursor: pointer;
   width: @post-width;
   height: @post-height;
-  max-height: 100%;
   margin-bottom: 25px;
+  border: 1px solid @colorGreyLite;
+  border-radius: 3px;
 
-  .post-content
+  .place-logo
   {
-    margin:35px;
-  }
-
-  .post-content, .place-about
-  {
-    margin-top: 0;
-    color: @colorTextGrey;
-    font-size: 100%;
-  }
-
-  .poster
-  {
-    width: 100%;
-    height: @post-poster-height;
+    height: @post-logo-size;
+    width: @post-logo-size;
+    margin-top: @el-margin - 5;
   }
 
   .title
   {
-    font-size: 180%;
     color: @colorTextDark;
+    padding: 0;
     margin: 0;
-    padding-top: 15%;
+    margin-left: -3px;
+    margin-top: @el-margin - 7;
+    font-weight: 600;
+  }
+
+  .place-about
+  {
+    color: @colorGrey;
+    margin-left: -3px;
+    margin-top: -3px;
+    font-size: 90%;
+  }
+
+  .poster
+  {
+    width: @post-width - 2;
+    height: @post-poster-height;
+  }
+
+  .post-content
+  {
+    margin: @el-margin;
+    margin-top: @el-margin + 5;
+    padding-bottom: @el-margin + 5;
+    border-bottom: 1px solid @colorGreyLite;
+  }
+
+  .time-ago
+  {
+    color:@colorGrey;
+    font-size: 115%;
+    margin-top: @el-margin;
+    padding-left: @el-margin;
   }
 
   .description
   {
-    color: @colorTextGrey;
-    margin-top: 15px;
-    font-size: 120%;
-    display: none;
+    color: @colorGreyDark;
     overflow: hidden;
     text-overflow: ellipsis;
     height: @post-description-height;
   }
 
-  .post-footer
-  {
+  .post-footer {
 
   }
-
-  .event-time
-  {
-    color: #adadad;
-    position: absolute;
-    bottom: 50px;
-    right: 30px;
-  }
-
 }
 
 /* Post modal */
-
-/* Center modal */
 .modal {
   text-align: center;
   padding: 0!important;
@@ -87,97 +100,45 @@
   margin-right: -4px; /* Adjusts for spacing */
 }
 
-.modal-dialog {
+.modal-dialog
+{
   display: inline-block;
-  text-align: left;
-  vertical-align: middle;
+  width:@modal-width;
+  height:@modal-height;
 }
 
-.modal-content {
-  width: 100%;
-  border-radius: 0;
-  padding: 0;
-  margin: 0;
+.prev-post-btn, .next-post-btn
+{
+  width: @modal-btn-width;
+  height: @modal-height;
+  background-color: @colorGrey;
+  opacity:0.9;
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+}
 
-  .modal-body {
+.modal-content
+{
+  .modal-body
+  {
     padding: 0;
     margin: 0;
+    background-color: @colorPostBg;
+    width: @modal-body-width - 2;
+    height: @modal-height;
+    border-radius: 3px;
 
-    .r-col, .l-col {
-      margin: 0;
-      padding: 0;
-    }
-
-    .post-modal-header {
-      padding-top: 20px;
-      margin-bottom: 10px;
-
-      .title {
-        color: @colorTextDark;
-      }
-
-      .l-col, .c-col {
-        margin: 0;
-        padding:0;
-      }
-
-      .r-col {
-        text-align: right;
-        padding-right: 20px;
-      }
-
-      .title {
-        font-size: 150%;
-        font-style: oblique;
-        margin: 0;
-      }
-
-      .place-about {
-        color: @colorTextGrey;
-      }
-
-      .bookmark{
-        color: @colorTextGrey;
-      }
-    }
-
-    .poster-modal {
-      width: 95%;
-      height: @poster-modal-height;
-      padding: 0;
-      margin: 0;
-    }
-
-    .post-modal-content {
-      height: @post-modal-content-height;
-      overflow-y: scroll;
-      .description {
-        font-size: 110%;
-        color: @colorTextDark;
-      }
-    }
-
-    .post-modal-footer
+    .place-logo
     {
-      color: @colorTextGrey;
-      padding-top: 18px;
-
-      .event-time {
-        text-align: center;
-      }
-
-      .place-address {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+      height: @post-logo-size;
+      width: @post-logo-size;
     }
 
-    .place-image {
-      width: 50px;
-      height: 50px;
+    .modal-poster
+    {
+      width: @modal-body-width - 2;
+      height: @modal-poster-height;
     }
-
   }
 }
 

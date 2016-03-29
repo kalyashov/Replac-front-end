@@ -9,8 +9,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet/less" type="text/css" href="css/postline.less"/>
         <link rel="stylesheet/less" type="text/css" href="css/main.less" />
+        <link rel="stylesheet/less" type="text/css" href="css/postline.less"/>
+
 
         <script src="bower_components/less/dist/less.min.js"></script>
 
@@ -58,15 +59,15 @@
         <script type="text/template" id="post-template">
             <div class="post">
                 <div class="post-header row">
-                    <div class="col-sm-3">
-                        <img class="place-logo img-fluid" src="<%= place.logo %>"/>
+                    <div class="col-sm-2">
+                        <img class="place-logo img-fluid img-circle" src="<%= place.logo %>"/>
                     </div>
                     <div class="col-sm-7">
                         <p class="title"> <%= place.full_name %> </p>
                         <p class="place-about"> <%= place.place_type.description %> </p>
                     </div>
-                    <div class="col-sm-2">
-                        <p class="time_ago"> 1ч </p>
+                    <div class="col-sm-3">
+                        <div class="time-ago"> 1 ч </div>
                     </div>
                 </div>
                 <div class="post-body">
@@ -83,46 +84,34 @@
 
         <!-- Post modal template -->
         <script type="text/template" id="post-modal-template">
-            <div class="modal-content">
-                <div class="modal-body row">
-                    <div class="l-col col-xs-6 cols-sm-6 col-md-6">
-                        <img class="poster-modal img-responsive" src="<%= poster %>"/>
-                    </div>
-                    <div class="r-col col-xs-6 cols-sm-6 col-md-6">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <div class="post-modal-header">
-                            <div class="row">
-                                <div class="l-col col-xs-2 col-sm-2 col-md-2">
-                                    <img class="place-image img-responsive img-circle" src="<%= place.logo %>">
-                                </div>
-                                <div class="c-col col-xs-8 col-sm-8 col-md-8">
-                                    <p class="title"> <%= place.full_name %> </p>
-                                    <p class="place-about"> <%= place.place_type.description %> </p>
-                                </div>
-                                <div class="r-col col-xs-2 col-sm-2 col-md-2">
-                                    <span class="bookmark"><i class="fa fa-bookmark-o fa-2x"></i></span>
-                                </div>
-                            </div>
+            <div class="prev-post-btn col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
+            <div class="modal-content col-xs-10 col-sm-10 col-md-8 col-lg-8">
+
+                <div class="modal-body ">
+                    <div class="post-modal-header">
+                        <div class="col-sm-2">
+                            <img class="place-logo img-fluid img-circle" src="<%= place.logo %>"/>
                         </div>
-                        <div class="post-modal-content">
+                        <div class="col-sm-7">
+                            <p class="title"> <%= place.full_name %> </p>
+                            <p class="place-about"> <%= place.place_type.description %> </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="time-ago"> 1 ч </div>
+                        </div>
+                    </div>
+                    <div class="post-body">
+                        <img class="modal-poster" src="<%= poster %>"/>
+                        <div class="modal-post-content">
                             <p class="description"> <%= description %> </p>
                         </div>
-                        <div class="post-modal-footer">
-                            <div class="row">
-                                <div class="l-col col-xs-2 col-sm-2 col-md-2">
-                                    <p class="post-type"> <%= post_type.description %> </p>
-                                </div>
-                                <div class="c-col col-xs-8 col-sm-8 col-md-8">
-                                     <p class="place-address"><i class="fa fa-map-marker"></i> <%= place.address %></p>
-                                </div>
-                                <div class="r-col col-xs-2 col-sm-2 col-md-2">
-                                    <div class="event-time"> 22:00 </div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="post-footer">
+
                     </div>
                 </div>
             </div>
+            <div class="next-post-btn col-xs-1 col-sm-1 col-md-2 col-lg-2 "></div>
         </script>
 
 

@@ -7,10 +7,15 @@
 /* custom template */
 html, body
 {
-  min-width: @post-width * 3;
   height: 100%;
+
   font-family: 'Roboto', sans-serif;
   background-color: @colorBase;
+}
+
+.row
+{
+  margin: 0;
 }
 
 /* top navbar */
@@ -75,6 +80,11 @@ html, body
 
 
 /* content */
+.wrapper
+{
+  min-width: @post-width * 3;
+}
+
 .content
 {
   padding-top: @contentPadding;
