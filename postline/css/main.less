@@ -1,14 +1,17 @@
 @import "colors";
 @import "postline";
 
-@navbarHeight: 55px;
-@contentPadding: 110px;
+@navbar-height: 55px;
+@content-padding: 110px;
+@sidebar-width: 265px;
+@sidebar-height: 300px;
+@postline-width: 935px;
 
 /* custom template */
 html, body
 {
   height: 100%;
-
+  min-width: 500px;
   font-family: 'Roboto', sans-serif;
   background-color: @colorBase;
 }
@@ -21,8 +24,8 @@ html, body
 /* top navbar */
 #topnav.navbar-default .navbar-brand
 {
-  height: @navbarHeight;
-  color: rgba(0, 116, 255, 1);
+  height: @navbar-height;
+  color: @nav-main-color;
   font-style: italic;
   font-weight: bold;
   padding: 15px 30px 0 45px;
@@ -30,9 +33,11 @@ html, body
 
 #topnav.navbar-default
 {
-  font-size: 16px;
+  font-size: 12pt;
+  font-family: 'Roboto Light', sans-serif;
   background-color: rgba(255, 255, 255, 1);
   border-bottom-width: 1px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
 }
 
 #topnav.navbar-default .navbar-nav>li>a
@@ -44,7 +49,7 @@ html, body
 #topnav.navbar-default .navbar-nav>li>a:hover,
 #topnav.navbar-default .navbar-nav>li>a:focus
 {
-  color: rgba(0, 116, 255, 1);
+  color: @nav-main-color;
   background-color: rgba(248, 248, 248, 0);
 }
 
@@ -52,8 +57,9 @@ html, body
 #topnav.navbar-default .navbar-nav>.active>a:hover,
 #topnav.navbar-default .navbar-nav>.active>a:focus
 {
-  color: rgba(0, 116, 255, 1);
+  color: @nav-main-color;
   background-color: rgba(255, 255, 255, 1);
+  border-bottom: 3px solid @nav-main-color;
 }
 
 #topnav.navbar-default .navbar-toggle
@@ -78,7 +84,6 @@ html, body
   background-color: #ffffff;
 }
 
-
 /* content */
 .wrapper
 {
@@ -87,5 +92,45 @@ html, body
 
 .content
 {
-  padding-top: @contentPadding;
+  padding-top: @content-padding;
+  height: 100%;
+
+  .sidebar {
+    width: @sidebar-width;
+    height: @sidebar-height;
+    float: left;
+  }
+
+  .posts {
+    width: @postline-width + @post-margin + 20;
+    margin-left: @sidebar-width;
+  }
+}
+
+/* filter sidebar */
+
+.filter-sidebar {
+  list-style-type: none;
+  font-family: 'Roboto Medium', sans-serif;
+  font-weight: 600;
+  font-size: 11pt;
+  margin-left: 25px;
+
+  li{
+    margin-bottom: 35px;
+
+    .fa{
+      margin-right: 15px;
+    }
+
+  }
+
+  li:hover {
+    color: @nav-main-color;
+    cursor: pointer;
+  }
+
+  .all, .news, .events, .sales {
+    color: @colorGrey;
+  }
 }

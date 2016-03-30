@@ -12,7 +12,6 @@
         <link rel="stylesheet/less" type="text/css" href="css/main.less" />
         <link rel="stylesheet/less" type="text/css" href="css/postline.less"/>
 
-
         <script src="bower_components/less/dist/less.min.js"></script>
 
     </head>
@@ -38,13 +37,18 @@
             </div>
             <!-- /top nav -->
 
+            <!-- content -->
             <div class="content">
-                    <!-- content -->
-                    <div class="row">
-                        <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
-                        <div id="posts" class="col-xs-11 col-sm-10 col-md-8 col-lg-8"></div>
-                        <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
-                    </div>
+                <div class="sidebar">
+                    <ul class="filter-sidebar">
+                        <li class="filter"><i class="fa fa-circle-thin fa-lg"></i>Фильтр</li>
+                        <li class="all"><i class="fa fa-undo fa-lg fa-rotate-270"></i>Все категории</li>
+                        <li class="news"><i class="fa fa-list fa-lg"></i>Новости</li>
+                        <li class="sales"><i class="fa fa-tag fa-lg"></i>Акции</li>
+                        <li class="events"><i class="fa fa-puzzle-piece fa-lg"></i>События</li>
+                    </ul>
+                </div>
+                <div id="posts" class="posts"></div>
             </div>
 
         </div>  <!-- /main -->
@@ -58,15 +62,15 @@
         <!-- Post templаte -->
         <script type="text/template" id="post-template">
             <div class="post">
-                <div class="post-header row">
-                    <div class="col-sm-2">
+                <div class="post-header">
+                    <div class="column-left">
                         <img class="place-logo img-fluid img-circle" src="<%= place.logo %>"/>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="column-center">
                         <p class="title"> <%= place.full_name %> </p>
                         <p class="place-about"> <%= place.place_type.description %> </p>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="column-right">
                         <div class="time-ago"> 1 ч </div>
                     </div>
                 </div>
@@ -77,7 +81,8 @@
                     </div>
                 </div>
                 <div class="post-footer">
-
+                    <div class="post-type"><i class="fa fa-tag fa-lg"></i></div>
+                    <div class="like-btn"><i class="fa fa-heart-o fa-lg"></i></div>
                 </div>
             </div>
         </script>
@@ -106,7 +111,9 @@
                         </div>
                     </div>
                     <div class="modal-post-footer">
-
+                        <div class="post-type"><i class="fa fa-tag fa-lg"></i></div>
+                        <div class="post-place-address"><i class="fa fa-map-marker"></i>  <%= place.address %></div>
+                        <div class="like-btn"><i class="fa fa-heart-o fa-lg"></i></div>
                     </div>
                 </div>
             </div>

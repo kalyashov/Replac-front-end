@@ -1,21 +1,27 @@
 @import "colors";
 
+// TODO использовать миксины
+
+/* Post */
 @post-height: 470px;
 @post-width: 275px;
 @post-logo-size: 30px;
 @post-poster-height: 195px;
 @post-description-height: 115px;
+@post-margin: 55px;
 
-@logo-col-width: 60px;
-@time-col-width: 60px;
-
+/* Modal */
 @modal-btn-width: 80px;
 @modal-body-width: 465px;
 @modal-width: @modal-body-width + @modal-btn-width * 2;
 @modal-height: 715px;
-@modal-header-height: 55px;
 @modal-poster-height: 330px;
 @modal-content-height: 220px;
+
+/* Common */
+@logo-col-width: 60px;
+@time-col-width: 60px;
+@header-height: 55px;
 
 @el-margin: 15px;
 
@@ -26,32 +32,41 @@
   cursor: pointer;
   width: @post-width;
   height: @post-height;
-  margin-bottom: 25px;
+  margin-bottom: @post-margin;
+  margin-right: @post-margin;
   border: 1px solid @colorGreyLite;
   border-radius: 3px;
 
-  .place-logo
-  {
+  .post-header {
+    height: @header-height ;
+
+    .column-center {
+      width: @post-width - @logo-col-width - @time-col-width - 2;
+    }
+  }
+
+  .place-logo {
     height: @post-logo-size;
     width: @post-logo-size;
-    margin-top: @el-margin - 5;
+    margin-top: @el-margin - 4;
+    margin-left: @el-margin;
   }
 
   .title
   {
+    font-family: 'Roboto Medium', sans-serif;
     color: @colorTextDark;
     padding: 0;
     margin: 0;
-    margin-left: -3px;
     margin-top: @el-margin - 7;
     font-weight: 600;
   }
 
   .place-about
   {
+    font-family: 'Roboto Light', sans-serif;
     color: @colorGrey;
-    margin-left: -3px;
-    margin-top: -3px;
+    margin-top: -1px;
     font-size: 90%;
   }
 
@@ -86,7 +101,25 @@
   }
 
   .post-footer {
+    .post-type {
+      float: left;
+      margin-left: @el-margin;
+      color: @nav-main-color;
+    }
 
+    .post-type:hover {
+      color: lighten(@nav-main-color, 20%);
+    }
+
+    .like-btn {
+      float: right;
+      margin-right: @el-margin;
+      color: @colorGreyMedium;
+    }
+
+    .like-btn :hover {
+      color: @colorGreyDark;
+    }
   }
 }
 
@@ -123,28 +156,13 @@
     border-radius: 3px;
 
     .modal-post-header {
-      height: @modal-header-height ;
-
-      .column-left,
-      .column-center,
-      .column-right {
-        float: left;
-        min-height: 100%;
-      }
-
-      .column-left {
-        width: @logo-col-width;
-      }
-
+      height: @header-height ;
 
       .column-center {
         width: @modal-body-width - @logo-col-width - @time-col-width - 2;
       }
-
-      .column-right {
-        width: @time-col-width;
-      }
     }
+
     .place-logo
     {
       height: @post-logo-size;
@@ -159,6 +177,7 @@
 
     .title
     {
+      font-family: 'Roboto Medium', sans-serif;
       padding: 0;
       margin: 0;
       margin-top: @el-margin - 7;
@@ -168,8 +187,9 @@
 
     .place-about
     {
+      font-family: 'Roboto Light', sans-serif;
       color: @colorGrey;
-      margin-top: -3px;
+      margin-top: -1px;
       font-size: 90%;
     }
 
@@ -181,9 +201,9 @@
 
     .modal-post-content
     {
-      margin: @el-margin + 5 0 @el-margin @el-margin;
+      margin: @el-margin + 5 0 @el-margin @el-margin + 5;
       padding-bottom: @el-margin + 5;
-      border-bottom: 1px solid @colorGreyLite;
+      border-bottom: 2px solid @colorGreyLite;
     }
 
     .time-ago
@@ -203,11 +223,52 @@
     }
 
     .modal-post-footer {
+      .post-type {
+        float: left;
+        margin-left: @el-margin * 2;
+        color: @nav-main-color;
+      }
 
+      .post-type:hover {
+        color: lighten(@nav-main-color, 20%);
+      }
+
+      .like-btn {
+        float: right;
+        margin-right: @el-margin * 2;
+        color: @colorGreyMedium;
+        cursor: pointer;
+      }
+
+      .like-btn :hover {
+        color: @colorGreyDark;
+      }
+
+      .post-place-address {
+        font-family: 'Roboto', sans-serif;
+        float:left;
+        margin-left: @el-margin * 2;
+        color: @colorGreyMedium;
+        font-size: 90%;
+      }
     }
   }
 }
 
+.column-left,
+.column-center,
+.column-right {
+  float: left;
+  min-height: 100%;
+}
+
+.column-left {
+  width: @logo-col-width;
+}
+
+.column-right {
+  width: @time-col-width;
+}
 
 
 
