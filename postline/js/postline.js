@@ -13,7 +13,7 @@ $(document).ready(function()
 
     var PostModalView = Backbone.View.extend({
         template: _.template($('#post-modal-template').html()),
-        el: '.modal-dialog row',
+        el: '.modal-dialog',
         initialize: function()
         {
             this.render();

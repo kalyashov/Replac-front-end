@@ -6,12 +6,16 @@
 @post-poster-height: 195px;
 @post-description-height: 115px;
 
+@logo-col-width: 60px;
+@time-col-width: 60px;
+
 @modal-btn-width: 80px;
-@modal-body-width: 470px;
+@modal-body-width: 465px;
 @modal-width: @modal-body-width + @modal-btn-width * 2;
 @modal-height: 715px;
-
+@modal-header-height: 55px;
 @modal-poster-height: 330px;
+@modal-content-height: 220px;
 
 @el-margin: 15px;
 
@@ -103,18 +107,8 @@
 .modal-dialog
 {
   display: inline-block;
-  width:@modal-width;
+  width:@modal-body-width;
   height:@modal-height;
-}
-
-.prev-post-btn, .next-post-btn
-{
-  width: @modal-btn-width;
-  height: @modal-height;
-  background-color: @colorGrey;
-  opacity:0.9;
-  filter:alpha(opacity=50);
-  -moz-opacity:0.5;
 }
 
 .modal-content
@@ -128,16 +122,88 @@
     height: @modal-height;
     border-radius: 3px;
 
+    .modal-post-header {
+      height: @modal-header-height ;
+
+      .column-left,
+      .column-center,
+      .column-right {
+        float: left;
+        min-height: 100%;
+      }
+
+      .column-left {
+        width: @logo-col-width;
+      }
+
+
+      .column-center {
+        width: @modal-body-width - @logo-col-width - @time-col-width - 2;
+      }
+
+      .column-right {
+        width: @time-col-width;
+      }
+    }
     .place-logo
     {
       height: @post-logo-size;
       width: @post-logo-size;
+      margin-top: @el-margin - 4;
+    }
+
+    .title, .place-about
+    {
+      text-align: left;
+    }
+
+    .title
+    {
+      padding: 0;
+      margin: 0;
+      margin-top: @el-margin - 7;
+      color: @colorTextDark;
+      font-weight: 600;
+    }
+
+    .place-about
+    {
+      color: @colorGrey;
+      margin-top: -3px;
+      font-size: 90%;
     }
 
     .modal-poster
     {
       width: @modal-body-width - 2;
       height: @modal-poster-height;
+    }
+
+    .modal-post-content
+    {
+      margin: @el-margin + 5 0 @el-margin @el-margin;
+      padding-bottom: @el-margin + 5;
+      border-bottom: 1px solid @colorGreyLite;
+    }
+
+    .time-ago
+    {
+      color:@colorGrey;
+      font-size: 115%;
+      margin-top: @el-margin;
+      padding-left: @el-margin;
+    }
+
+    .description
+    {
+      color: @colorGreyDark;
+      overflow-y: auto;
+      text-align: left;
+      height: @modal-content-height;
+    }
+
+    .modal-post-footer {
+
     }
   }
 }

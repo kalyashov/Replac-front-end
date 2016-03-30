@@ -84,34 +84,32 @@
 
         <!-- Post modal template -->
         <script type="text/template" id="post-modal-template">
-            <div class="prev-post-btn col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
-            <div class="modal-content col-xs-10 col-sm-10 col-md-8 col-lg-8">
+            <div class="modal-content">
 
                 <div class="modal-body ">
-                    <div class="post-modal-header">
-                        <div class="col-sm-2">
+                    <div class="modal-post-header">
+                        <div class="column-left">
                             <img class="place-logo img-fluid img-circle" src="<%= place.logo %>"/>
                         </div>
-                        <div class="col-sm-7">
+                        <div class="column-center">
                             <p class="title"> <%= place.full_name %> </p>
                             <p class="place-about"> <%= place.place_type.description %> </p>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="column-right">
                             <div class="time-ago"> 1 ч </div>
                         </div>
                     </div>
-                    <div class="post-body">
+                    <div class="modal-post-body">
                         <img class="modal-poster" src="<%= poster %>"/>
                         <div class="modal-post-content">
                             <p class="description"> <%= description %> </p>
                         </div>
                     </div>
-                    <div class="post-footer">
+                    <div class="modal-post-footer">
 
                     </div>
                 </div>
             </div>
-            <div class="next-post-btn col-xs-1 col-sm-1 col-md-2 col-lg-2 "></div>
         </script>
 
 
